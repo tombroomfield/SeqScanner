@@ -1,10 +1,12 @@
-# SeqScanner
+# seq_scanner
 
-## SeqScanner is a testing tool for ActiveRecord models to verify that your queries are using the correct indexes.
+## seq_scanner is a testing tool for ActiveRecord to verify that your queries are using the correct indexes.
+
+[![coverage](https://raw.githubusercontent.com/tombroomfield/SeqScanner/main/coverage/coverage.svg)](https://raw.githubusercontent.com/tombroomfield/SeqScanner/main/coverage/index.html)
 
 ## Overview
 
-In development and test, with a small database, postgres will often use a sequence scan even when there is an index available, making it difficult to verify that your queries will use the correct indexes in production. SeqScanner is a testing tool for ActiveRecord models to verify that your queries are using the correct indexes.
+In development and test, with a small database, postgres will often use a sequence scan even when there is an index available, making it difficult to verify that your queries will use the correct indexes in production. seq_scanner is a testing tool for ActiveRecord models to verify that your queries are using the correct indexes.
 
 ### Installation
 

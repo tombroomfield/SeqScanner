@@ -1,7 +1,16 @@
 # frozen_string_literal: true
+require "simplecov"
+require 'simplecov-formatter-badge'
+
+SimpleCov.start do
+  SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
+    SimpleCov::Formatter::HTMLFormatter,
+    SimpleCov::Formatter::BadgeFormatter
+  ])
+end
+
 require "pg"
 require "active_record"
-require "database_cleaner"
 
 require "seq_scanner"
 require_relative "schema_builder"
