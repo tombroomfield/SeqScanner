@@ -2,10 +2,11 @@
 /.yardoc
 /_yardoc/
 /coverage/
+!/coverage/coverage.svg
 /doc/
 /pkg/
 /spec/reports/
 /tmp/
-
+.DS_Store
 # rspec failure tracking
 .rspec_status
