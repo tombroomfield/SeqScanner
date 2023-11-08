@@ -1,6 +1,6 @@
 # seq_scanner
 
-## seq_scanner is a testing tool for ActiveRecord to verify that your queries are using the correct indexes.
+### seq_scanner is a testing tool for ActiveRecord to verify that your queries are using the correct indexes.
 
 ![coverage](https://raw.githubusercontent.com/tombroomfield/SeqScanner/main/coverage/coverage.svg)
 

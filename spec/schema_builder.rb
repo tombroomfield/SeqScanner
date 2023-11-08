@@ -1,5 +1,8 @@
 require "active_record"
 
+# Spec schema builder
+# Responsible for setting up and tearing down test database
+# Used over database cleaner gem for simplicity and conflicts with most recent rails versions
 class SchemaBuilder
   class << self
     def build
@@ -8,7 +11,7 @@ class SchemaBuilder
     end
 
     def truncate
-      ActiveRecord::Base.connection.execute("TRUNCATE TABLE tbl_users RESTART IDENTITY")
+      connection.execute("TRUNCATE TABLE tbl_users RESTART IDENTITY")
     end
 
     private
@@ -22,8 +25,8 @@ class SchemaBuilder
         port: 5432
       )
 
-      ActiveRecord::Base.connection.drop_database("test_seq_scanner")
-      ActiveRecord::Base.connection.create_database("test_seq_scanner")
+      connection.drop_database("test_seq_scanner")
+      connection.create_database("test_seq_scanner")
 
       ActiveRecord::Base.establish_connection(
         adapter: "postgresql",
@@ -36,12 +39,16 @@ class SchemaBuilder
 
     def setup_table
       ## Create tbl_users table with uuid id and name and email columns
-      ActiveRecord::Base.connection.create_table :tbl_users, id: :uuid do |t|
-        t.string :name
-        t.string :email
+      connection.create_table :tbl_users, id: :uuid do |table|
+        table.string :name
+        table.string :email
       end
 
-      ActiveRecord::Base.connection.add_index :tbl_users, :email
+      connection.add_index :tbl_users, :email
+    end
+
+    def connection
+      ActiveRecord::Base.connection
     end
   end
 end

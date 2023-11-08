@@ -1,4 +1,5 @@
 module SeqScanner
+  # Abstracts the switching of the enable_seqscan flag
   module Switcher
     class << self
       def on

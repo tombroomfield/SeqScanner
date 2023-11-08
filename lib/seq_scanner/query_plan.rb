@@ -1,6 +1,7 @@
 require_relative 'errors/seq_scan_detected_error'
 
 module SeqScanner
+  # Model representing a query plan
   class QueryPlan
     attr_reader :name, :sql, :binds, :query_plan
 

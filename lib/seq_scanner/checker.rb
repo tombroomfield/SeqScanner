@@ -2,6 +2,8 @@ require_relative 'query_explainer'
 require_relative 'query_plan'
 
 module SeqScanner
+  # Listens to the sql.active_record events then re-runs the queries with EXPLAIN
+  # Calls #validate on any query plans that are returned
   class Checker
     def initialize(**opts)
       self.queries = []
